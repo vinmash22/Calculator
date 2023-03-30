@@ -40,4 +40,18 @@ public class Controller {
             return "На ноль делить нельзя!";
         } else return num1 + " / " + num2 + " = " + service.divide(num1, num2);
     }
+
+    @GetMapping("authorization")
+    public String authorization(@RequestParam String login, @RequestParam String password, @RequestParam String confirmPassword) {
+        try {
+            return service.authorization(login, password, confirmPassword);
+        } catch (WrongLoginException e) {
+            return "false";
+        } catch (WrongPasswordException e) {
+            return "false";
+        } finally {
+            System.out.println("Проверка завершена");
+        }
+
+    }
 }
