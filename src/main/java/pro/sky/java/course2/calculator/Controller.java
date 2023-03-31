@@ -45,9 +45,7 @@ public class Controller {
     public String authorization(@RequestParam String login, @RequestParam String password, @RequestParam String confirmPassword) {
         try {
             return service.authorization(login, password, confirmPassword);
-        } catch (WrongLoginException e) {
-            return "false";
-        } catch (WrongPasswordException e) {
+        } catch (WrongLoginException | WrongPasswordException e) {
             return "false";
         } finally {
             System.out.println("Проверка завершена");
