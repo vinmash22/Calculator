@@ -34,7 +34,7 @@ public class ServiceImpl implements Service {
             throw new WrongLoginException("Некорректный логин");
         }
         if (!password.matches(regex) || password.length() >= 20 || !password.equals(confirmPassword)) {
-            throw new WrongLoginException("указанные пароли не равны");
+            throw new WrongLoginException("Некорректный пароль");
         }
         return "true";
     }
