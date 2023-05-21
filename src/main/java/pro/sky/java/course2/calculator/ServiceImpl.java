@@ -24,6 +24,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public int divide(int num1, int num2) {
+        if (num2 == 0) {
+            throw new IllegalArgumentException();
+        }
         return num1 / num2;
     }
 
